@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="memo">
+
+<!-- select 구문의 결과를 HashMap으로 저장할 때 사용할 HashMap 생성 -->
+<!-- <resultMap type="HashMap" id="memoMap"> -->
+<!-- 기본 자료형을 그대로 사용하는 경우에는 jdbcType 과 javaType은 생략 -->
+<!-- 
+<result property="title" column="title" />
+<result property="content" column="content" jdbcType="TEXT" javaType="java.lang.String" />
+<result property="regdate" column="regdate" />
+<result property="imagepath" column="imagepath" />
+</resultMap>
+ -->
+
+<!-- memo 테이블의 전체 데이터를 가져오는 sql -->
+<select id="memolist" resultType="java.util.Map">
+select *
+from memo
+order by regdate desc
+</select>
+
+<!-- memo 테이블의 데이터 개수를 가져오는 sql -->
+<select id="memocount" resultType="java.lang.Integer">
+select count(*)
+from memo
+</select>
+
+<!-- memo 테이블에서 num을 받아서 하나의 데이터를 가져오는 sql -->
+<select id="memodetail" resultType="java.util.Map" parameterType="java.lang.Integer">
+select *
+from memo
+where num = #{num}
+</select>
+
+<!-- Map을 받아서 데이터를 삽입하는 sql -->
+<insert id="memoinsert" parameterType="java.util.Map">
+insert into memo(title, content, regdate, imagepath)
+values(#{title}, #{content}, #{regdate}, #{imagepath})
+</insert>
+
+<!-- num을 받아서 삭제하는 sql -->
+<delete id="memodelete" parameterType="java.lang.Integer">
+delete from memo
+where num = #{num}
+</delete>
+
+</mapper>

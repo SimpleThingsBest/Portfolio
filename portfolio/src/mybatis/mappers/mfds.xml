@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mfds">
+<!-- 제일 큰 날짜 찾아오기 -->
+<select id="maxpubdate"
+resultType="java.lang.String">
+select MAX(pubdate)
+from mfds;
+</select>
+<!-- 데이터를 삽입하는 sql -->
+<insert id="dataput"
+parameterType="Mfds">
+INSERT INTO mfds(title, content, link, pubdate) values(#{title},#{content},#{link},#{pubdate});
+</insert>
+<!-- 전체데이터를 리스트로 가져오는 sql -->
+<select id="alldata"
+resultType="Mfds">
+select title, content, link, pubdate
+from mfds
+order by pubdate desc
+</select>
+<!-- 부분 데이터 가져오기 -->
+<select id="partdata"
+resultType="Mfds"
+parameterType="java.lang.String">
+select title, content, link, pubdate
+from mfds
+where pubdate >= #{pubdate}
+</select>
+</mapper>
