@@ -50,7 +50,6 @@
 
 
 <script>
-
 //파일 선택 버튼에서 파일의 내용이 변경될 때 이미지 파일인 경우
 //이미지 파일의 내용을 img 태그에 출력하도록 해주는 스크립트
 document.getElementById("imagepath").addEventListener('change',function(){
@@ -89,9 +88,6 @@ document.getElementById("imagepath").addEventListener('change',function(){
 	}
 });
 
-
-
-
 //저장 버튼을 누르면 호출되는 콜백 처리
 document.getElementById("insertbtn").addEventListener("click", function(){
 	//ajax를 이용해서 폼의 데이터 전송하기 위한 객체를 생성
@@ -117,8 +113,4 @@ document.getElementById("insertbtn").addEventListener("click", function(){
 		}
 	});
 });
-
-
-
-
 </script>
