@@ -188,4 +188,10 @@ public class HomeController {
 		return "parsingpage/memo";
 	}
 	
+	@RequestMapping(value="parsingpage/memoinsert", method=RequestMethod.GET)
+	public String memoinsert(HttpServletRequest request) {
+		//System.out.println("메모 추가 페이지이동");
+		return "parsingpage/memoinsert";
+	}
+	
 }

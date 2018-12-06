@@ -33,6 +33,7 @@ public class MemoDao {
 	
 	//map으로 파라미터를 저장해서 데이터를 추가하는 메소드
 	public int memoinsert(Map<String, Object> map) {
+		System.out.println("Dao!! 메모추가 : "+map.toString());
 		return sqlSession.insert("memo.memoinsert", map);
 	}
 	

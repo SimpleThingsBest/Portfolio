@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import com.gmail.aisdugo.service.MemoService;
 
@@ -28,5 +29,16 @@ public class MemoRestController {
 	@RequestMapping(value="parsingpage/memodetail", method=RequestMethod.GET)
 	public Map<String, Object> memodetail(HttpServletRequest request){
 		return memoService.memodetail(request);
+	}
+	
+	@RequestMapping(value="parsingpage/memodelete", method=RequestMethod.POST)
+	public Map<String, Object> memodelete(HttpServletRequest request){
+		return memoService.memodelete(request);
+	}
+	
+	@RequestMapping(value="parsingpage/memoinsert", method=RequestMethod.POST)
+	public Map<String, Object> memoinsert(MultipartHttpServletRequest request){
+		//System.out.println("restController : "+memoService.memoinsert(request));
+		return memoService.memoinsert(request);
 	}
 }

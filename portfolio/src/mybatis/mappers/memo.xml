@@ -38,7 +38,7 @@ where num = #{num}
 <!-- Map을 받아서 데이터를 삽입하는 sql -->
 <insert id="memoinsert" parameterType="java.util.Map">
 insert into memo(title, content, regdate, imagepath)
-values(#{title}, #{content}, #{regdate}, #{imagepath})
+ values(#{title}, #{content}, #{regdate}, #{imagepath})
 </insert>
 
 <!-- num을 받아서 삭제하는 sql -->

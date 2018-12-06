@@ -4,6 +4,8 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.springframework.web.multipart.MultipartHttpServletRequest;
+
 //사용자의 요청을 처리하기 위한 메소드의 모양을 선언
 public interface MemoService {
 	
@@ -12,5 +14,11 @@ public interface MemoService {
 	
 	//상세보기를 위한 메소드
 	public Map<String, Object> memodetail(HttpServletRequest request);
+	
+	//데이터 삭제를 위한 메소드
+	public Map<String, Object> memodelete(HttpServletRequest request);
+	
+	//데이터 삽입를 위한 메소드
+	public Map<String, Object> memoinsert(MultipartHttpServletRequest request);
 
 }

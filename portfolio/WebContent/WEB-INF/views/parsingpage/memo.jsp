@@ -7,6 +7,9 @@
 <title>메모</title>
 </head>
 <body>
+<div id="detaildisplay"></div>
+	<font color='red'><h3 id="notice"></h3></font>
+	<input type="button" value="메모추가" id=insertbtn />
 	<div id="listdisplay"></div>
 </body>
 <!-- jQuery 링크 추가 : 자바스크립트 보다 먼저 작성해야 함.-->
@@ -55,10 +58,51 @@
 			data: {'num':num},
 			dataType: 'json',
 			success: function(memo){
-				alert(memo.content)
+				//DOM (Document Object Model) : html문서내에 있는 객체
+				var detaildisplay = document.getElementById("detaildisplay");
+				// detaildisplay = "" - 새로 출력
+				// detaildisplay += "" - 새로 추가
+				detaildisplay.innerHTML = "<p>"+memo.regdate+"</p>"
+				detaildisplay.innerHTML += "<p><b>제목 : </b>"+memo.title+"</p>"
+				detaildisplay.innerHTML += "<p><b>내용 : </b>"+memo.content+"</p>"
+				if(memo.imagepath != " "){
+					detaildisplay.innerHTML += "<img src='/portfolio/memoimage/"+memo.imagepath+"'/><br/>"
+					//현재는 웹서버이므로 프로젝트이름까지는 생략해도 됩니다. 하지만 안드로이드나 ios는 꼭 전체 주소를 적어주어야 합니다.
+					//"<img src='http://localhost:8080/portfolio/memoimage/"+memo.imagepath+"'/><br/>"
+					//현재 이미지는 인라인태그라서 <br/>을 붙여주거나 <p>,<div>태그 안에 넣어서 옆에 다른 무엇이 올 수 없도록 해줍니다.
+				}
+				detaildisplay.innerHTML += "<input type='button' value='삭제' onclick='del("+memo.num+")' />"
 			}
 		})
 	}
+	
+	//데이터를 삭제하는 함수
+	function del(num){
+		$.ajax({
+			url: 'memodelete',
+			data: {'num':num},
+			dataType: 'json',
+			type: 'POST',
+			success: function(memo){
+				var notice = document.getElementById("notice")
+				if(memo.result == 'success'){
+					//데이터 다시 출력
+					memolist()
+					notice.innerHTML = "삭제 성공!"
+					var detaildisplay = document.getElementById("detaildisplay").innerHTML = ""
+					setTimeout(function(){notice.innerHTML = "";}, 3000)
+				}else{
+					//메시지 띄우기
+					notice.innerHTML = "삭제 실패...ㅠ"
+					setTimeout(function(){notice.innerHTML = "";}, 3000)
+				}
+			}
+		})
+	}
+	
+	document.getElementById("insertbtn").addEventListener("click", function(){
+		location.href = "http://localhost:8080/portfolio/parsingpage/memoinsert"
+	})
 	
 	//jQuery에서 문서가 시작되자 마자 수행
 	$(function(){
