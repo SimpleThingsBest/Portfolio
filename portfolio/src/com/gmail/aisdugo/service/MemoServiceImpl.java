@@ -114,7 +114,7 @@ public class MemoServiceImpl implements MemoService {
 			Calendar cal = Calendar.getInstance();
 			String regdate =
 					cal.get(Calendar.YEAR)+"-"
-					+cal.get(Calendar.MONTH+1)+"-"
+					+(cal.get(Calendar.MONTH)+1)+"-"
 					+cal.get(Calendar.DAY_OF_MONTH)+" "
 					+cal.get(Calendar.HOUR)+":"
 					+cal.get(Calendar.MINUTE)+":"
