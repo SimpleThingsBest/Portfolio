@@ -4,6 +4,8 @@
 <section class="content">
 	<div class="box">
 		<div class="box-header with-border">
+		<input type="button" value="메인으로" class="btn btn-success"
+						onclick="javascript:window.location='../'">
 			<table class="table">
 				<thead class="thead">
 					<th scope="col">제목/내용</th>

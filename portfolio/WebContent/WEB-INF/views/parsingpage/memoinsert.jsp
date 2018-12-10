@@ -7,6 +7,8 @@
 <title>메모 작성</title>
 </head>
 <body>
+<input type="button" value="메인으로" class="btn btn-success"
+						onclick="javascript:window.location='../'">
 	<form enctype="multipart/form-data" method="post">
 		<p align="center">
 		<table border="1" width="50%" height="80%" align='center'>

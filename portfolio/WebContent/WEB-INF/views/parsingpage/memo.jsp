@@ -7,6 +7,8 @@
 <title>메모</title>
 </head>
 <body>
+<input type="button" value="메인으로" class="btn btn-success"
+						onclick="javascript:window.location='../'">
 <div id="detaildisplay"></div>
 	<font color='red'><h3 id="notice"></h3></font>
 	<input type="button" value="메모추가" id=insertbtn />

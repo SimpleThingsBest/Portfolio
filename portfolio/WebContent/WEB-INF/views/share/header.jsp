@@ -38,18 +38,21 @@ content='width=device, initial-scale=1, maximum-scale=1, user-scalable=no' name=
          <section class="sidebar">
              <ul class="nav nav-tabs">
                  <li role="presentation" class="active"><a href="${pageContext.request.contextPath}/views/home.jsp">Home</a></li> <!-- active는 처음이 이게 선택되어 있도록 하는 설정이다. -->
-                 <li role="presentation"><a href="#">목록보기</a></li>
                  <li role="presentation"><a href="${pageContext.request.contextPath}/peoples/login">로그인</a></li>
-                 <li role="presentation"><a href="#">회원정보수정</a></li>
                  <li role="presentation"><a href="${pageContext.request.contextPath}/peoples/register">회원가입</a></li>
+                 <li role="presentation"><a href="${pageContext.request.contextPath}/parsingpage/mfdsnews">보도자료</a></li>
+                 <li role="presentation"><a href="${pageContext.request.contextPath}/parsingpage/memo">메모리스트</a></li>
+                 <!-- 
                  <li role="presentation"><a href="#">회원탈퇴</a></li>
                  <li role="presentation"><a href="#">내가 쓴 글</a></li>
-                 <li role="presentation"><a href="${pageContext.request.contextPath}/parsingpage/mfdsnews">보도자료</a></li>
+                 <li role="presentation"><a href="#">회원정보수정</a></li>
+                 <li role="presentation"><a href="#">목록보기</a></li>
                  <li role="presentation"><a href="#">식품 최신동향</a></li>
                  <li role="presentation"><a href="#">HAPP이란?</a></li>
                  <li role="presentation"><a href="#">식중독 예측정보</a></li>
                  <li role="presentation"><a href="#">자유게시판</a></li>
-                 <li role="presentation"><a href="#">Q&A</a></li>                                                     
+                 <li role="presentation"><a href="#">Q&A</a></li>
+                  -->                                                     
              </ul>
          </section>
      </aside>
